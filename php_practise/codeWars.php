@@ -2,16 +2,18 @@
 function inArray($array1, $array2) {
     $result = [];
     $counter = 0;
+    $counter2 = 0;
     foreach ($array2 as $check){
-        $string = $check;
-        $check = array($check);
+        $check = str_split($check);
         foreach ($check as $letter){
-            if ($array1[$counter] === $letter){
+            $string = $array1[$counter2];
+            if ($string[$counter] == $letter){
                 $counter++;
             }
         }
-        if ($counter == strlen($string)){
-            $result[] = $check;
+        if ($counter == strlen($array1[$counter2])){
+            $result[] = $array1[$counter2];
+            $counter2++;
         }
     }
     return $result;
@@ -19,4 +21,4 @@ function inArray($array1, $array2) {
 
 
 
-var_dump(inArray(['asd', 'wer'], ['asdf', 'wert']));
+var_dump(inArray(["arp", "live", "strong"], ["lively", "alive", "harp", "sharp", "armstrong"]));
